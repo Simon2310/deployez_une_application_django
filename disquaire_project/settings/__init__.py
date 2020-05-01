@@ -25,14 +25,11 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '4i&u(!%shd*0-3$ls)fohsjsd48t(gu%1-ch_
 # '-~aO;| F;rE[??/w^zcumh(9'
 
 
-# SECURITY WARNING: don't run with debug turned on in production!
-if os.environ.get('ENV') == 'PRODUCTION':
-    DEBUG = False
-else:
+
     DEBUG = True
 
 
-ALLOWED_HOSTS = ['disquaire.herokuapp.com']
+ALLOWED_HOSTS = ['192.168.1.14']
 
 
 # Application definition
@@ -87,11 +84,11 @@ WSGI_APPLICATION = 'disquaire_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql', # on utilise l'adaptateur postgresql
-        'NAME': 'disquaire', # le nom de notre base de données créée précédemment
-        'USER': 'celinems', # attention : remplacez par votre nom d'utilisateur !!
-        'PASSWORD': '',
-        'HOST': '',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2', # on utilise l'adaptateur postgresql
+        'NAME': 'disquaire', # le nom de notre base de donnÃ©es crÃ©Ã©e prÃ©cÃ©demment
+        'USER': 'simon', # attention : remplacez par votre nom d'utilisateur !!
+        'PASSWORD': '23101992',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
@@ -140,10 +137,10 @@ STATIC_URL = '/static/'
 INTERNAL_IPS = ['127.0.0.1']
 
 
-if os.environ.get('ENV') == 'PRODUCTION':
 
-    STATIC_ROOT = os.path.join(BASE_ROOT, 'staticfiles')
+BASE_ROOT = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = os.path.join(BASE_ROOT, 'staticfiles')
 
     # Simplified static file serving.
     # https://warehouse.python.org/project/whitenoise/
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    #STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
