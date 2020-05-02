@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '4i&u(!%shd*0-3$ls)fohsjsd48t(gu%1-ch_
 
 
 
-    DEBUG = True
+DEBUG = True
 
 
 ALLOWED_HOSTS = ['192.168.1.14']
